@@ -12,7 +12,26 @@ export default function FavoritesScreen() {
     favoriteMealCtx.ids.includes(meal.id)
   );
 
+  if (favoriteMeals.length === 0) {
+    return (
+      <View style={styles.root}>
+        <Text style={styles.text}>You have no favorite meals yet.</Text>
+      </View>
+    )
+  }
+
   return <MealsList items={favoriteMeals} />;
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  root: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  text: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: 'white',
+  }
+});
